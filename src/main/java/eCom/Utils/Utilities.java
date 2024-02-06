@@ -73,6 +73,7 @@ public class Utilities {
 		String destinationScreenshotPath = System.getProperty("user.dir")+"\\Screenshots\\"+testName+".png";
 		
 		try {
+			// FileUtils.copyFile(srcScreenshot, new File(destinationScreenshotPath));
 			FileHandler.copy(srcScreenshot,new File(destinationScreenshotPath));
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -37,6 +37,7 @@ public class ExtentReporter {
 			e.printStackTrace();
 		}
 		
+		//To get all System Out:      System.getProperties().list(System.out);   
 		extentReport.setSystemInfo("Application URL",configProp.getProperty("url"));
 		extentReport.setSystemInfo("Browser Name",configProp.getProperty("browserName"));
 		extentReport.setSystemInfo("Email",configProp.getProperty("validEmail"));
