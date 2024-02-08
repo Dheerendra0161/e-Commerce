@@ -5,10 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import eCom.Utils.ExplicitWait;
+
 public class RegisterPage {
 	
 	WebDriver driver;
-	
+	ExplicitWait eWait;
 	@FindBy(id="input-firstname")
 	private WebElement firstNameField;
 	
@@ -62,7 +64,7 @@ public class RegisterPage {
 		
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
-		
+		eWait = new ExplicitWait(driver);
 	}
 	
 	public String retrievePasswordWarning() {
@@ -104,7 +106,7 @@ public class RegisterPage {
 	}
 	
 	public void enterFirstName(String firstNameText) {
-		
+		eWait.waitForElementToBeClickable(firstNameField);
 		firstNameField.sendKeys(firstNameText);
 		
 	}
@@ -140,20 +142,20 @@ public class RegisterPage {
 	}
 	
 	public void selectPrivacyPolicy() {
-		
+		eWait.waitForElementToBeClickable(privacyPolicyField);
 		privacyPolicyField.click();
 		
 	}
 	
 	public AccountSuccessPage clickOnContinueButton() {
-		
+		eWait.waitForElementToBeClickable(continueButton);
 		continueButton.click();
 		return new AccountSuccessPage(driver);
 		
 	}
 	
 	public void selectYesNewsletterOption() {
-		
+		eWait.waitForElementToBeClickable(yesNewsletterOption);
 		yesNewsletterOption.click();
 		
 	}
@@ -165,27 +167,43 @@ public class RegisterPage {
 	}
 	
 	public AccountSuccessPage registerWithMandatoryFields(String firstNameText,String lastNameText,String emailText,String telephoneText,String passwordText) {
+		eWait.waitForElementToBeClickable(firstNameField);
 		firstNameField.sendKeys(firstNameText);
+		eWait.waitForElementToBeClickable(lastNameField);
 		lastNameField.sendKeys(lastNameText);
+		eWait.waitForElementToBeClickable(emailAddressField);
 		emailAddressField.sendKeys(emailText);
+		eWait.waitForElementToBeClickable(telephoneField);
 		telephoneField.sendKeys(telephoneText);
+		eWait.waitForElementToBeClickable(passwordField);
 		passwordField.sendKeys(passwordText);
+		eWait.waitForElementToBeClickable(passwordConfirmField);
 		passwordConfirmField.sendKeys(passwordText);
+		eWait.waitForElementToBeClickable(privacyPolicyField);
 		privacyPolicyField.click();
+		eWait.waitForElementToBeClickable(continueButton);
 		continueButton.click();
 		return new AccountSuccessPage(driver);
 		
 	}
 	
 	public AccountSuccessPage registerWithAllFields(String firstNameText,String lastNameText,String emailText,String telephoneText,String passwordText) {
+		eWait.waitForElementToBeClickable(firstNameField);
 		firstNameField.sendKeys(firstNameText);
+		eWait.waitForElementToBeClickable(lastNameField);
 		lastNameField.sendKeys(lastNameText);
+		eWait.waitForElementToBeClickable(emailAddressField);
 		emailAddressField.sendKeys(emailText);
+		eWait.waitForElementToBeClickable(telephoneField);
 		telephoneField.sendKeys(telephoneText);
+		eWait.waitForElementToBeClickable(passwordField);
 		passwordField.sendKeys(passwordText);
 		passwordConfirmField.sendKeys(passwordText);
+		eWait.waitForElementToBeClickable(yesNewsletterOption);
 		yesNewsletterOption.click();
+		eWait.waitForElementToBeClickable(privacyPolicyField);
 		privacyPolicyField.click();
+		eWait.waitForElementToBeClickable(continueButton);
 		continueButton.click();
 		return new AccountSuccessPage(driver);
 		

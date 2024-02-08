@@ -10,7 +10,6 @@ import eCom.Base.Base;
 import eCom.Pages.HomePage;
 import eCom.Pages.SearchPage;
 
-//Updated Comment - Added more details
 
 public class SearchTest extends Base {
 
@@ -23,6 +22,7 @@ public class SearchTest extends Base {
 
 	public WebDriver driver;
 
+	// @Parameters("browser")
 	@BeforeMethod
 	public void setup() {
 
@@ -33,8 +33,10 @@ public class SearchTest extends Base {
 	@AfterMethod
 	public void tearDown() {
 
-		driver.quit();
+		if (driver != null) {
 
+			driver.quit();
+		}
 	}
 
 	@Test(priority = 1)
@@ -56,7 +58,10 @@ public class SearchTest extends Base {
 
 	}
 
-	@Test(priority = 3, dependsOnMethods = { "verifySearchWithValidProduct" })
+	// Note: , if a test method (TestMethodA) has dependencies on
+	// other test methods (TestMethodB), and TestMethodB fails, then TestMethodA
+	// will be skipped.
+	@Test(priority = 3, dependsOnMethods = { "verifySearchWithValidProduct" },alwaysRun = true)
 	public void verifySearchWithoutAnyProduct() {
 
 		searchPage = homePage.clickOnSearchButton();
@@ -65,5 +70,4 @@ public class SearchTest extends Base {
 				"No product message in search results is not displayed");
 
 	}
-
 }

@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import eCom.Base.Base;
@@ -23,7 +24,8 @@ public class RegisterTest extends Base {
 	}
 
 	public WebDriver driver;
-
+	
+	//@Parameters("browser")
 	@BeforeMethod
 	public void setup() {
 
@@ -43,7 +45,7 @@ public class RegisterTest extends Base {
 
 	}
 
-	@Test(priority = 1)
+	@Test(priority = 1,groups = {"sanity"})
 	public void verifyRegisteringAnAccountWithMandatoryFields() {
 
 		accountSuccessPage = registerPage.registerWithMandatoryFields(dataProp.getProperty("firstName"),
@@ -54,7 +56,7 @@ public class RegisterTest extends Base {
 
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 2 ,groups = { "regression" ,"sanity"})
 	public void verifyRegisteringAccountByProvidingAllFields() {
 
 		accountSuccessPage = registerPage.registerWithAllFields(dataProp.getProperty("firstName"),
@@ -66,7 +68,7 @@ public class RegisterTest extends Base {
 	}
 	
 
-	@Test(priority = 3)
+	@Test(priority = 3,groups = { "sanity"})
 	public void verifyRegisteringAccountWithExistingEmailAddress() {
 
 		registerPage.registerWithAllFields(dataProp.getProperty("firstName"), dataProp.getProperty("lastName"),
@@ -79,7 +81,7 @@ public class RegisterTest extends Base {
 
 	}
 
-	@Test(priority = 4)
+	@Test(priority = 4,groups = { "regression"})
 	public void verifyRegisteringAccountWithoutFillingAnyDetails() {
 
 		registerPage.clickOnContinueButton();

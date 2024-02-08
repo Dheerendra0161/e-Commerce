@@ -86,6 +86,8 @@ public class MyListeners implements ITestListener {
 		String pathOfExtentReport = System.getProperty("user.dir") + "\\test-output\\ExtentReports\\extentReport.html";
 		File extentReport = new File(pathOfExtentReport);
 
+		// To open automatically a default web browser and navigate to a specified URL
+		// or URI.
 		try {
 			Desktop.getDesktop().browse(extentReport.toURI());
 		} catch (IOException e) {
