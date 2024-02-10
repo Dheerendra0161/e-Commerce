@@ -26,8 +26,8 @@ public class FakerClassTestData {
 	}
 
 	public static String generateDate() {
-		 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-		 return dateFormat.format(faker.date().birthday());
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		return dateFormat.format(faker.date().birthday());
 	}
 
 	public static void main(String[] args) {
@@ -35,6 +35,6 @@ public class FakerClassTestData {
 		System.out.println("Fake Email Address: " + generateEmailAddress());
 		System.out.println("Fake Full Name: " + generateFullName());
 		System.out.println("Fake Adress: " + generateAdress());
-		System.out.println("Fake Birthday: " + generateDate());
+		System.out.println("Fake Birthday or date: " + generateDate());
 	}
 }

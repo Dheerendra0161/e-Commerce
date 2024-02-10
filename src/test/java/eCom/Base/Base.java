@@ -28,6 +28,9 @@ public class Base {
 	}
 
 	public WebDriver initializeBrowserAndOpenApplicationURL(String browserName) {
+		if (System.getProperty(browserName)!=null) {
+			browserName=System.getProperty(browserName);
+		}
 		try {
 			if (browserName.equalsIgnoreCase("chrome")) {
 				WebDriverManager.chromedriver().setup();
