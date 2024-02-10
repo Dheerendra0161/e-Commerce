@@ -30,7 +30,8 @@ public class Base {
 	public WebDriver initializeBrowserAndOpenApplicationURL(String browserName) {
 		System.out.println("#######1"+browserName);
 		System.out.println("#######2"+System.getProperty(browserName));
-		if (System.getProperty(browserName)!=null) {
+		System.out.println("#######22"+System.getenv(browserName));
+		if (System.getenv(browserName)!=null) {
 			browserName=System.getProperty(browserName);
 		}
 		System.out.println("#######3"+System.getProperty(browserName));
