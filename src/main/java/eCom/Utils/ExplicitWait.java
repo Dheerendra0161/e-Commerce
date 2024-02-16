@@ -20,7 +20,8 @@ public class ExplicitWait {
 		PageFactory.initElements(driver, this);
 	}
 
-	// elementToBeClickable()checks whether an element is both present in the DOM and visible on the page,
+	// elementToBeClickable()checks whether an element is both present in the DOM
+	// and visible on the page,
 	// and also enabled for interaction.
 	public void waitForElementToBeClickable(WebElement element) {
 		wait.until(ExpectedConditions.elementToBeClickable(element));
@@ -36,6 +37,10 @@ public class ExplicitWait {
 
 	public void waitForElementToBeSelected(WebElement element) {
 		wait.until(ExpectedConditions.elementToBeSelected(element));
+	}
+
+	public void waitToURLContain(String url) {
+		wait.until(ExpectedConditions.urlContains(url));
 	}
 
 }

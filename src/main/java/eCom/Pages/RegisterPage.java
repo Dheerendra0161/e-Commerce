@@ -6,11 +6,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import eCom.Utils.ExplicitWait;
+import eCom.Utils.JavaScriptExecutorUtils;
 
 public class RegisterPage {
 	
 	WebDriver driver;
 	ExplicitWait eWait;
+	JavaScriptExecutorUtils js;
 	@FindBy(id="input-firstname")
 	private WebElement firstNameField;
 	
@@ -60,12 +62,24 @@ public class RegisterPage {
 	private WebElement passwordWarning;
 
 	
+	@FindBy(xpath="//a[normalize-space()='Specials']")
+	private WebElement specialOfferButton;
+	
 	public RegisterPage(WebDriver driver) {
 		
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
 		eWait = new ExplicitWait(driver);
+		js=new JavaScriptExecutorUtils(driver);
+		
 	}
+	//How to scroll and click on specified element
+	public void SpecialOfferButton() {
+		//Use Page-Ruler google extension to measure the pixel distance of the element 
+		JavaScriptExecutorUtils.scrollByXYAxis(798, 621);
+		specialOfferButton.click();
+	}
+	
 	
 	public String retrievePasswordWarning() {
 		

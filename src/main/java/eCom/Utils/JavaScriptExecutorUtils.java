@@ -33,9 +33,10 @@ public class JavaScriptExecutorUtils {
 	}
 
 	// Scroll down by specified pixels
-	public static void scrollDown(int pixels) {
-		js.executeScript("window.scrollBy(0, " + pixels + ");");
+	public static void scrollByXYAxis(int xPixels, int yPixels) {
+	    js.executeScript("window.scrollBy(" + xPixels + ", " + yPixels + ");");
 	}
+
 
 	// Scroll horizontally by specified pixels
 	public static void scrollHorizontally(int pixels) {

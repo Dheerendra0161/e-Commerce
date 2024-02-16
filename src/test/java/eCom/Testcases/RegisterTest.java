@@ -40,7 +40,7 @@ public class RegisterTest extends Base {
 
 		if (driver != null) {
 
-			driver.quit();
+			//driver.quit();
 		}
 
 	}
@@ -90,6 +90,11 @@ public class RegisterTest extends Base {
 				dataProp.getProperty("emailWarning"), dataProp.getProperty("telephoneWarning"),
 				dataProp.getProperty("passwordWarning")));
 
+	}
+	@Test
+	public void scrollAndClick() {
+		registerPage.SpecialOfferButton();
+		
 	}
 
 }
