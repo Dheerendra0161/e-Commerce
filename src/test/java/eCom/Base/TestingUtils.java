@@ -32,8 +32,9 @@ public class TestingUtils {
 		WebElement APIButton = driver.findElement(By.xpath("//a[normalize-space()='API']"));
 		getStartedButton.click();
 		System.out.println("*****************");
-
-		ActionsUtils.controlClickOnElement(driver,APIButton);
+		ActionsUtils.controlClickOnElement(APIButton);
+		
+	//	ActionsUtils.controlClickOnElement(driver,APIButton);
 
 //		Actions action=new Actions(driver);
 //		action.keyDown(Keys.CONTROL).click(APIButton).keyUp(Keys.CONTROL).perform(); 
