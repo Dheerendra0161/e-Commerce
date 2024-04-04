@@ -24,6 +24,9 @@ public class MyListeners implements ITestListener {
 	ExtentReports extentReport;
 	ExtentTest extentTest;
 
+	// ITestContext context:allows you to retrieve information about the current
+	// test suite, test methods, test parameters, test groups, and other suite-level
+	// attributes.
 	@Override
 	public void onStart(ITestContext context) {
 
@@ -31,6 +34,8 @@ public class MyListeners implements ITestListener {
 
 	}
 
+	// ITestResult result: allows you to retrieve information about the status of
+	// the test method (pass, fail, skip)
 	@Override
 	public void onTestStart(ITestResult result) {
 

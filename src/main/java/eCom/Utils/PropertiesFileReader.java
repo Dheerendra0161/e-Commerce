@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class PropertiesFileReader {
 	public static Properties readProperties(String filePath) {
-		Properties prop = new Properties();
+		Properties prop = new Properties(); //object will store the key-value pairs read from the properties file.
 		FileInputStream fileInputStream = null;
 		try {
 			File file = new File(filePath);
